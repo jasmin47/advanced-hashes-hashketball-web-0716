@@ -122,8 +122,8 @@ end
 def num_points_scored(player)
 array = []
 game_hash.each {|home_away, team_color_players_block| 
-  team_color_players_block.each {|team_color_players, name_string_blocks|
-    if team_color_players == :players 
+  team_color_players_block.each {|team_color_players, name_string_blocks| # team_color_players_block[:players].each
+    if team_color_players == :players #eliminate
       name_string_blocks.each {|player_name, stats|
         if player_name == player 
           stats.each {|type, number|
@@ -146,7 +146,7 @@ game_hash.each {|home_away, team_color_players_block|
       name_string_blocks.each {|player_name, stats|
         if player_name == player 
           stats.each {|type, number|
-            if type == :shoe
+            if type == :shoe ##no need for "if," just do hash[value variable]
               array << number
             end}
         end
